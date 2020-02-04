@@ -1,0 +1,5 @@
+print("Enter your first name:")
+fn = input()
+print("Enter your last name:")
+ln = input()
+print("Hello "+fn +" " + ln)
