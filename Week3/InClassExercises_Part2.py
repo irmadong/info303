@@ -7,7 +7,7 @@
 #A key can be of any type of objects like a number, string or a list in Python dictionary.
 #The values can be accessed by using key rather than the index like in simple arrays.
 
-sample_dictionary = {'Mike': 8049875431,'John': 8087632514, 'Bill': 5166534213}
+sample_dictionary = {'Mike': 8049875431,'John': 8087632514, 'Bill': 5166534213} #key:element
 
 #As you can see in the above example:
 #Each key is separated from its value by using a ‘:’.
@@ -41,11 +41,12 @@ print(book_dict['genre'])
 print(book_dict['pages'])
 print(book_dict.get('pages'))
 #Notice the two different methods for accessing the value of a key in a dictionary
+
 print('My book is in the %r genre and is %s pages long.' % (book_dict['genre'],
                                                                 book_dict.get('pages')))
-
 #The benefit to the get method is it won't return an error if the key does not exist in the dictionary
 rating_value = book_dict['rating']
+rating_value = book_dict.get('rating') #no error message
 #If the key is not found in the dictionary, return Five Stars
 rating_value = book_dict.get('rating','Five Stars')
 print(rating_value)
@@ -95,6 +96,10 @@ books_dict3 = dict([('genre', 'technology'), ('pages', 500)])
 books = [books_dict1, books_dict2, books_dict3]
 print(books)
 
+
+
+
+
 #Now, to reference the dictionaries within our list object, we use the [] to naviagte down
 #to and into the respective objects.
 print(books[1]['pages'])
@@ -123,13 +128,15 @@ fav_foods = {
     'tony': ['bacon', 'spam']
 }
 
+#Question!! what's the difference between this and the tuple of dic
+
 #note how we have a list nested in a dictionary
 #Let's loop over the dictionary in sorted order
 for name, foods in sorted(fav_foods.items()):
     print('\n' + name.title() + '\'s favorite foods are:')
     #now loop over the foods...values in the dictionary object
     for food in foods:
-        print('\t' + foods.title())
+        print('\t' + food.title())
 
 #While Loops allow us to iterate until some condition is no longer True
 #In other words, we loop until some expression evaluates to False
@@ -196,6 +203,14 @@ while curval <= 4:
 #Print the result and the length of the dictionary object once finished.
 #The output should look as follows:
 #{1: 1, 3: 27, 5: 125, 7: 343, 9: 729, 11: 1331, 13: 2197, 15: 3375, 17: 4913, 19: 6859, 21: 9261, 23: 12167, 25: 15625}
+odd = {1:1}
+for i in range(3,26,2):
+ odd[i] = pow(i,3)
+
+print(odd)
+
+
+
 
 
 #Create a dictionary object of five employees with the key being their name and the value as 0 for each employee
@@ -207,13 +222,28 @@ while curval <= 4:
 #print an appropriate message.  Otherwise, print an appropriate message indicating that the employee is not
 #on the favorites list.
 #Lastly, check if Tom is in your dictionary of employees. If not, print an appropriate message.
+import random
+employ= {'a':0,'b':0,'c':0,'d':0,'e':0}
+print(employ.values())
 
-
-
+for e in employ.keys():
+    employ[e] = random.randint(100,500)
+print(employ)
+fav = ['a','g']
+for name in employ.keys():
+    if name in fav:
+        print("cong")
+    else:
+        print("sad")
 
 
 #Calculate the mean, median, mode, and standard deviation of the values in this list
+
+import statistics as s
 my_list = [101,101,101,115,112,113,119,222,222,127,128,128,182,230]
+print("The mean is " + str(s.mean(my_list)))
+print("The median is " + str(s.median(my_list)))
+
 
 
 
