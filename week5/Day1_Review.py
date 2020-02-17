@@ -217,7 +217,8 @@ else:
 num1 = float(input("Enter a number:"))
 num2 = float(input("Enter a number :"))
 if num1/num2 >4:
-    print(F'{num1} divided by {num2} is {round(num1/num2, 2)}, which is greater than 4')
+    #print(F'{num1} divided by {num2} is {round(num1/num2, 2)}, which is greater than 4')
+    print('{} divided by {} is {},which is greater than 4'.format(num1,num2,round(num1/num2,2)))
 else:
     print(F'{num1}divided by {num2} is {round(num1/num2,2)}, which is not greater than 4')
 
@@ -230,7 +231,15 @@ else:
 #    For all other values (i.e., negative numbers), print an appropriate message.
 #A sample message for one of the conditions would be the following:
 #-7.0 raised to the power of 3.0 is -343.0, which is negative (less than zero)
-
+num1 = float(input("Enter a number: "))
+num2 = float(input("Enter a number:"))
+result = pow(num1,num2)
+if 0<= result <=500:
+    print("The number is between 0 and 500")
+elif result >500:
+    print('the result is greater than 500')
+else:
+    print(F'{num1} raised to the power of {num2} is {result},which is negative')
 
 
 
