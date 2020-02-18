@@ -282,7 +282,7 @@ else:
 
 
 
-#26. Check whether two strings are equal even if the order of words or
+#26!. Check whether two strings are equal even if the order of words or
 #    the characters are different.  To do this comparison, ignore the case of the words.
 # #    For instance, consider this string:
 #    Str1 = “Hello and Welcome”
@@ -294,19 +294,36 @@ else:
 #    After testing your code with these two strings, modify them so they are not equal.
 
 #sorted temporary sort
+# sorted(list)
 #sort permenant
+#list.sort()
+str_a = 'Hello and welcome'
+str_b = 'Welcome and Hello'
+
+
+if sorted(str_a.lower()) == sorted(str_b.lower()):
+    print("They are the same!")
+else:
+    print("They are not the same")
+
+
 
 
 
 
 #For the next series of problems, use the random module.
-#27  Print the help for random.random.
+#27!  Print the help for random.random.
 #    Generate a random real number number between 0 (inclusive) and 1 (not inclusive)
 #    If the number is less than 0.5, print an appropriate message.
 #    Otherwise, print a different message.
+import random
+print(help(random.random))
 
-
-
+num = random.random()
+if num <0.5:
+    print(F'{num} It is less than 0.5')
+else:
+    print("It is more than 0.5")
 #28   Print the help for random.randint.
 #     Generate a random integer between -15 and 15.
 #     If the number is zero, print an appropriate and user-friendly message with the percent chance
@@ -320,27 +337,39 @@ else:
 #           Then, print the result with an appropriate and user-friendly message.
 
 
-
-
-
-#29  Create a list containing four names.
+numint = random.randint(-15,15)
+if numint ==0:
+    print(F'It is less than 0 the probability is {round(1/31,5)} percent of 0')
+elif numint < 0:
+    print(F'It is {round(15/31,5)} percent chance of less than 0')
+else:
+    numint2 = random.randint(5,10)
+    finalnum = pow(numint,numint2)
+    print(F"The result is {finalnum}")
+#29!  Create a list containing four names.
 #    Have the computer randomly choose one of those names.
 #    Then, print an appropriate and user-friendly message.
 
-
+my_list = ['bill','joe','sally', 'sue']
+name = random.choice(my_list)
+print(name)
 
 
 #30. Modify the previous example.  If the computer automatically selected the first or third item
 #    in the list, print an appropriate and user-friendly message such as 'I was hoping for one of
 #    these values was'.  Otherwise, print a different
 #    user-appropriate message such as 'I was hoping for one of the other options.'
-
+if name == my_list[1] or name== my_list[3]:
+    print("yes~")
+else:
+    print("no!")
 
 
 #31.  Generate a random sample (n=5) from the following list.
 #    Then, print out the random sample with an appropriate and user-friendly message.!
 my_list = [20,40,80,100,120,33,45,65,85, 97,109,123]
-
+sample = random.sample(my_list,k=5)
+print(sample)
 
 
 #32.  Modify the previous example, to ask the user to enter the sample size.
@@ -349,11 +378,18 @@ my_list = [20,40,80,100,120,33,45,65,85, 97,109,123]
 #    Otherwise, print a message that indicates that your sample size is too big.
 my_list = [20,40,80,100,120,33,45,65,85, 97,109,123]
 
-#random: randint, random.chioce(),random.sample()
+size = int(input("Enter the sample size:"))
+if(size > len(my_list)):
+    print("too big ")
+else:
+    sample = random.sample(my_list,k = size)
+
+
+    ####random: randint, random.chioce(),random.sample()!!!
 
 
 
-#33.  Have the user enter three numbers.
+#33!.  Have the user enter three numbers.
 #     Check whether the first number is greater than the second number
 #     and whether the second number is greater than the third number.
 #     If so, print an appropriate user-friendly message.
@@ -406,18 +442,18 @@ print(carmanu[3])
 print(carmanu)
 
 #39. Using the previous list, delete the fourth item.
-
+del carmanu[3]
 
 #40. Using the previous list, add a manufacturer to the last position and print the list after you add the item.
 
-
+carmanu.append('yy')
 #41. Using the previous list, add a manufacturer to the second position and print the list after you add the item.
-
+carmanu.insert(2,"bug")
 
 #42. Using the previous list, delete the last item in your list and print the list after you remove that item.
 
-
-
+del carmanu[-1]
+print(carmanu)
 #43. Using the below list, delete the item with the value of 'tom' without referencing the indexed position.
 #    When finished, print the list
 names = ['bill','joe','sally','sue','tom', 'tim', 'violet']
@@ -463,15 +499,22 @@ if (car.upper() in cars) or (cars.lower() in cars) or (car.title() in cars):
 #47. Check if the following list is empty!  If so, print an appropriate and user-friendly message.
 #    If not, print an appropriate and user-friendly message.
 cars = ['ford', 'honda', 'gm', 'nissan', 'toyota', 'bmw', 'tesla']
-
-
+if len(cars) == 0:
+    print("it is empty")
+else:
+    print("it is not empty")
 #48.  Clear the list from the previous question and perform the is empty check again.
-
-
+cars.clear()
+if len(cars) == 0:
+    print("it is empty")
+else:
+    print("it is not empty")
 #49.  Create a list of numbers from 1 to 1000 and print the values
 num = [i for i in range (1,1001)]
 print(num)
 
+#alternative way
+num = list(range(1,1001))
 #50.  Create a list of odd numbers from 500 to 600.  Then, print the values.
 #     Create a list of even numbers from 500 to 600.  Then, print the values.
 odd = [i for i in range(501,600,2)]

@@ -300,7 +300,21 @@ rolloercoaster()
 #     The function should allow the user to enter as many cities as they would like until they enter the word quit.
 #The following would represent a sequence for this function:
 #Hello tom
+def visitedcity(name='tom'):
 
+    print(F'Hello {name}')
+
+    while True:
+        city = input('Please tell me a city you have visited: \n (Enter \'quit\' when you are finished.)')
+        if city == 'quit':
+            break
+        else:
+            print(F'I\'d love to visit {city}')
+
+
+
+
+visitedcity()
 #Please tell me a city you have visited:
 #(Enter 'quit' when you are finished.)>? detroit
 #I'd love to go to Detroit!
@@ -325,8 +339,11 @@ rolloercoaster()
 #     Once finished, call the function a couple of times with different arguments and print
 #     the output of those function calls.
 
-
-
+def fruitful(first, last, middle=''):
+    full = F'{first} {middle} {last} '
+    return full
+name = fruitful('jing','dong')
+print(name)
 
 #30.  Build a void function named greet_users that accepts a list of names as an argument stored in a names
 #     parameter.  In the function, loop over each name in the names parameter and print a hello message.
@@ -334,7 +351,11 @@ rolloercoaster()
 #     Hello, Hannah!     #might be a good message to print for an item in the list named Hannah
 #     After your function is created, call the function a few times.
 
-
+def greet_users (names):
+    for name in names:
+        print(F'Hello, {name}')
+names = ['jing' ,'li', 'wu']
+greet_users(names)
 
 
 
@@ -347,6 +368,16 @@ rolloercoaster()
 #     mountain climbing poll.  If they enter yes, repeat the poll.  If they enter no, end the poll and
 #     return the dictionary object to the calling statement/expression.
 #     Call the function and print the dictionary object that gets returned from the function.
+def userpoll():
+    dict = {}
+    while True:
+        name = input('Enter your name:')
+        mount = input("What mountain will you climb?")
+        ask = input("Would they like another person to take our mountain climbing poll?")
+        dict[name] = mount
+        if ask == 'no':
+            return dict
+userpoll()
 
 
 
